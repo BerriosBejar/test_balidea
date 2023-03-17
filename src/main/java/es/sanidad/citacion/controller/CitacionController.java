@@ -1,4 +1,4 @@
-package es.sanidad.citacion.rest;
+package es.sanidad.citacion.controller;
 
 import es.sanidad.citacion.entity.Citacion;
 import es.sanidad.citacion.model.CitacionBusquedaDto;
@@ -17,7 +17,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
-public class CitacionRest {
+public class CitacionController {
 
   private final CitacionService citacionService;
 
