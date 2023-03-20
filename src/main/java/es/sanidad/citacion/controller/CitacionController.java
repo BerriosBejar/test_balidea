@@ -38,6 +38,7 @@ public class CitacionController {
   @PostMapping("/create")
   public String createView(Model model,CitacionCreacionDto citacionCreacionDto) {
       model.addAttribute("citacionCreacionDto",citacionCreacionDto);
+      citacionService.creacionCitacion(citacionCreacionDto);
       return PAGE_CITACION_CREATE;
   }
   
