@@ -1,34 +1,34 @@
-<div class="modal" id="create-cita-modal">
+<div class="modal" id="create-cita-modal" aria-hidden="true">
 
-<form class="my-4" th:object="${citacionCreacionDto}" th:action="@{/create}" method="post">
-  <div class="mb-3">
-      <label for="observacion" class="form-label">Observacion</label>
-      <input type="text" class="form-control" th:field="*{observacion}" id="observacion">
-  </div>
-  <div class="mb-3">
-      <label for="urgente" class="form-label">Urgente</label>
-      <select class="form-control" th:field="*{urgente}" id="urgente">
-          <option value=""></option>
-          <option value="true">Si</option>
-          <option value="false">No</option>
-      </select>
-  </div>
-  <div class="mb-3">
-      <label for="doctorApellido" class="form-label">Doctor Apellido</label>
-      <input type="text" class="form-control" th:field="*{doctorApellido}" id="doctorApellido">
-  </div>
-  <div class="mb-3">
-      <label for="horaCita" class="form-label">Hora Cita</label>
-      <input type="datetime-local" class="form-control" th:field="*{horaCita}" id="horaCita">
-  </div>
-  <div class="mb-3">
-      <label for="notificacionPdf" class="form-label">Notificacion PDF</label>
-      <select class="form-control" th:field="*{notificacionPdf}" id="notificacionPdf">
-          <option value=""></option>
-          <option value="true">Si</option>
-          <option value="false">No</option>
-      </select>
-  </div>
-  <button type="submit" class="btn btn-primary">Crear Cita</button>
-</form>
+  <form class="my-4" th:object="${citacionCreacionDto}" th:action="@{/create}" method="post">
+    <div class="mb-3">
+        <label for="observacion" class="form-label">Observacion</label>
+        <input type="text" class="form-control" th:field="*{observacion}" id="observacion">
+    </div>
+    <div class="mb-3">
+        <label for="urgente" class="form-label">Urgente</label>
+        <select class="form-control" th:field="*{urgente}" id="urgente">
+            <option value=""></option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="doctorApellido" class="form-label">Doctor Apellido</label>
+        <input type="text" class="form-control" th:field="*{doctorApellido}" id="doctorApellido">
+    </div>
+    <div class="mb-3">
+        <label for="horaCita" class="form-label">Hora Cita</label>
+        <input type="datetime-local" class="form-control" th:field="*{horaCita}" id="horaCita">
+    </div>
+    <div class="mb-3">
+        <label for="notificacionPdf" class="form-label">Notificacion PDF</label>
+        <select class="form-control" th:field="*{notificacionPdf}" id="notificacionPdf">
+            <option value=""></option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Cita</button>
+  </form>
 </div>

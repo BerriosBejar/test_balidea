@@ -8,7 +8,9 @@ import es.sanidad.citacion.service.CitacionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,14 +34,24 @@ public class CitacionController {
     } else  {
       model.addAttribute("page", citacionService.busquedaTodasCitaciones());
     }
+    CitacionCreacionDto citacionCreacionDto = new CitacionCreacionDto();
+    
+    // Add the form-backing bean to the model attributes
+    model.addAttribute("citacionCreacionDto", citacionCreacionDto);
+
     model.addAttribute("citacionBusquedaDto", citacionBusquedaDto);
     return PAGE_CITACION_LIST;
   }
-  @PostMapping("/create")
-  public String createView(Model model,CitacionCreacionDto citacionCreacionDto) {
-      model.addAttribute("citacionCreacionDto",citacionCreacionDto);
-      citacionService.creacionCitacion(citacionCreacionDto);
+  @GetMapping("/createModal")
+  public String register()
+  {
       return PAGE_CITACION_CREATE;
+  }
+
+  @PostMapping("/create")
+  public String createView(@ModelAttribute("citacionCreacionDto") CitacionCreacionDto citacionCreacionDto, BindingResult bindingResult) {
+      citacionService.creacionCitacion(citacionCreacionDto);
+      return PAGE_CITACION_LIST;
   }
   
 }
