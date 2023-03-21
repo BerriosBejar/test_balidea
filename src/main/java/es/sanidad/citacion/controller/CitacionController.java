@@ -24,7 +24,7 @@ public class CitacionController {
   private final CitacionService citacionService;
 
   private static final String PAGE_CITACION_LIST   = "web/pages/citacion/citacion-list";
-  private static final String PAGE_CITACION_CREATE   = "web/pages/citacion/citacion-list";
+  private static final String PAGE_CITACION_CREATE   = "";
 
   @GetMapping("/")
   public String initView(Model model, CitacionBusquedaDto citacionBusquedaDto) {
@@ -49,9 +49,9 @@ public class CitacionController {
   }
 
   @PostMapping("/create")
-  public String createView(@ModelAttribute("citacionCreacionDto") CitacionCreacionDto citacionCreacionDto, BindingResult bindingResult) {
+  public String createView(CitacionCreacionDto citacionCreacionDto) {
       citacionService.creacionCitacion(citacionCreacionDto);
-      return PAGE_CITACION_LIST;
+      return PAGE_CITACION_CREATE;
   }
   
 }

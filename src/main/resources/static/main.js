@@ -1,9 +1,10 @@
 $(document).ready(function() {
-    $('#create-cita-button').click(function() {
-      $('#create-cita-modal').show();
-    });
+  $('#create-cita-button').click(function() {
+    $('#create-cita-modal').show();
   });
-  
+});
+
+
 // /**
 //  * @Author Falco Constantine
 //  * @Project Users list

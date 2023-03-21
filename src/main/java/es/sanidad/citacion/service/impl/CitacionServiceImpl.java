@@ -7,6 +7,7 @@ import es.sanidad.citacion.model.CitacionBusquedaDto;
 import es.sanidad.citacion.model.CitacionCreacionDto;
 import es.sanidad.citacion.model.CitacionListadoDto;
 import es.sanidad.citacion.repository.CitacionRepository;
+import es.sanidad.citacion.repository.DoctorRepository;
 import es.sanidad.citacion.service.CitacionService;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +22,7 @@ import javax.persistence.PersistenceContext;
 public class CitacionServiceImpl implements CitacionService {
 
   private final CitacionRepository citacionRepository;
-
+  private final DoctorRepository doctorRepository;
   private final CitacionMapper citacionMapper;
 
   @PersistenceContext
@@ -49,15 +50,19 @@ public class CitacionServiceImpl implements CitacionService {
 
   @Override
   public Citacion creacionCitacion(CitacionCreacionDto citacionCreacionDto) {
-    Citacion citacion = citacionMapper.toCitacionEntity(citacionCreacionDto);
-    citacion.setDoctor(findDoctorPorApellido(citacionCreacionDto.getDoctorApellido()));
+    Citacion citacion =citacionMapper.toCitacionEntity(citacionCreacionDto);
+    Citacion citacion3=new Citacion();
+    citacion.setId(citacion3.getId());
+    Doctor doctor=findDoctorPorApellido(citacionCreacionDto.getDoctorApellido());
+    if(doctor!=null){
+      citacion.setDoctor(doctor);
+
+    }
     return citacionRepository.save(citacion);
   }
 
 
   private Doctor findDoctorPorApellido(String doctor) {
-    return (Doctor) entityManager.createQuery("SELECT q FROM Doctor q WHERE q.apellido LIKE :dato")
-            .setParameter("dato",doctor)
-            .getSingleResult();
+    return doctorRepository.findByApellido(doctor);
   }
 }
