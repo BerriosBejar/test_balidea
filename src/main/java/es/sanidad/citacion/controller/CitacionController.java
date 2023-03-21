@@ -24,7 +24,6 @@ public class CitacionController {
   private final CitacionService citacionService;
 
   private static final String PAGE_CITACION_LIST   = "web/pages/citacion/citacion-list";
-  private static final String PAGE_CITACION_CREATE   = "";
 
   @GetMapping("/")
   public String initView(Model model, CitacionBusquedaDto citacionBusquedaDto) {
@@ -41,11 +40,6 @@ public class CitacionController {
 
     model.addAttribute("citacionBusquedaDto", citacionBusquedaDto);
     return PAGE_CITACION_LIST;
-  }
-  @GetMapping("/createModal")
-  public String register()
-  {
-      return PAGE_CITACION_CREATE;
   }
 
   @PostMapping("/create")
