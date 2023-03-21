@@ -51,7 +51,7 @@ public class CitacionController {
   @PostMapping("/create")
   public String createView(CitacionCreacionDto citacionCreacionDto) {
       citacionService.creacionCitacion(citacionCreacionDto);
-      return PAGE_CITACION_CREATE;
+      return "redirect:/";
   }
   
 }

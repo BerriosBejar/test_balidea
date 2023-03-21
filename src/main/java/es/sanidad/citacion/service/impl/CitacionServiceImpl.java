@@ -33,11 +33,11 @@ public class CitacionServiceImpl implements CitacionService {
   public List<CitacionListadoDto> busquedaCitacion(CitacionBusquedaDto dto) {
     return citacionRepository.findByUrgente(dto.getUrgente())
             .stream()
-            .filter(citacion -> citacion.getDoctor().getApellido().equals(dto.getDoctor()) &&
-                    citacion.getObservacion().toLowerCase().contains(dto.getObservacion().toLowerCase()))
+            .filter(citacion -> citacion.getDoctor()==null || ( citacion.getDoctor().getApellido().equals(dto.getDoctor()) &&
+                    citacion.getObservacion().toLowerCase().contains(dto.getObservacion().toLowerCase())))
             .map(citacionMapper::toDto).collect(
                     Collectors.toList());
-  }
+  } 
 
 
 

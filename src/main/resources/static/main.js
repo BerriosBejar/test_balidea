@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#create-cita-button').click(function() {
-    $('#create-cita-modal').show();
+    $('#create-cita-modal').style.display = "";
   });
 });
 

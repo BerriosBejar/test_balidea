@@ -33,7 +33,10 @@ public interface CitacionMapper {
 
   @Named("doctorToDatosDoctor")
   public static String doctorToDatosDoctor (Doctor doctor){
-    return doctor.getNombres().toString() + " " + doctor.getApellido();
+    if(doctor==null)
+      return "";
+    else
+      return doctor.getNombres().toString() + " " + doctor.getApellido();
   }
   @Named("booleanToString")
   public static String booleanToString (Boolean notificacionPdf){

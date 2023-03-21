@@ -7,7 +7,9 @@
         rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
         crossorigin="anonymous">
-</head>
+  <script type="text/javascript" th:src="@{js/main.js}" src="../static/js/main.js"></script>
+
+</head> 
 <body>
 <div class="container-md">
   <div class="card mt-5" >
@@ -34,7 +36,9 @@
             </div>
           </div>
         <button type="submit" class="btn btn-primary">Buscar</button>
-        <button type="submit" class="btn btn-primary" id="create-cita-button">Crear Cita</button>
+       <!--
+<button type="submit" class="btn btn-primary" id="create-cita-button"  data-toggle="modal" data-target="#myModal">Crear Cita</button>
+       --> 
       </form>
       <table class="table table-bordered table-striped">
         <thead>
@@ -63,7 +67,8 @@
     </div>
   </div>
 </div>
-<div  id="create-cita-modal"  >
+<!-- style="display: none;" -->
+<div  id="create-cita-modal" >
   <form  th:object="${citacionCreacionDto}" th:action="@{/create}" method="post" >
     <div >
         <label for="observacion" class="form-label">Observacion</label>
@@ -99,8 +104,8 @@
 </div>
 <!--    <button type="submit" class="btn btn-primary">Crear Cita</button>  -->
   
-  </form>
-</div>
+  <!--</form>-->
+<!--</div>-->
 
 
 
